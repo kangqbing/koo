@@ -8,7 +8,7 @@
 	<section id="wrapper">
 
 		<!-- START @HEADER -->
-		<header data-ng-include="'partials/header'" id="header"></header>
+		<header data-ng-include="'${base}/partials/header'" id="header"></header>
 		<!-- /#header -->
 		<!--/ END HEADER -->
 		<!--
@@ -24,7 +24,7 @@
 
             -->
 		<aside data-sidebar-left-nicescroll data-sidebar-minimize
-			data-ng-include="'partials/sidebarleft'" id="sidebar-left"
+			data-ng-include="'${base}/partials/sidebarleft'" id="sidebar-left"
 			class="sidebar-rounded"></aside>
 		<!-- /#sidebar-left -->
 		<!--/ END SIDEBAR LEFT -->
@@ -34,7 +34,7 @@
 
 			<!-- Start page header -->
 			<div class="header-content"
-				data-ng-include="'partials/headercontent'"></div>
+				data-ng-include="'${base}/partials/headercontent'"></div>
 			<!-- /.header-content -->
 			<!--/ End page header -->
 
@@ -44,7 +44,7 @@
 			<!--/ End body content -->
 
 			<!-- Start footer content -->
-			<footer class="footer-content" data-ng-include="'partials/footer'"></footer>
+			<footer class="footer-content" data-ng-include="'${base}/partials/footer'"></footer>
 			<!-- /.footer-content -->
 			<!--/ End footer content -->
 
@@ -54,7 +54,7 @@
 
 		<!-- START @SIDEBAR RIGHT -->
 		<aside data-choose-themes data-navbar-color data-sidebar-color
-			data-layout-setting data-ng-include="'partials/sidebarright' "
+			data-layout-setting data-ng-include="'${base}/partials/sidebarright' "
 			id="sidebar-right"></aside>
 		<!-- /#sidebar-right -->
 		<!--/ END SIDEBAR RIGHT -->

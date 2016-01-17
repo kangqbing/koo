@@ -1,6 +1,6 @@
 .state('bill', {
 	url : '/bill',
-	templateUrl : 'goto?t=bill/index.html',
+	templateUrl : '${base}/goto?t=bill/index.html',
 	data : {
 		pageTitle : '订单管理',
 		pageHeader : {
@@ -18,7 +18,7 @@
 					var cssPath = settings.cssPath, pluginPath = settings.pluginPath;
 					return $ocLazyLoad.load([{
 								name : 'blankonApp.bill',
-								files : ['goto?t=bill/index.js']
+								files : ['${base}/goto?t=bill/index.js']
 							}]);
 				}]
 	}
@@ -26,7 +26,7 @@
 
 .state('storelist', {
 	url : '/storelist',
-	templateUrl : 'goto?t=store/index.html',
+	templateUrl : '${base}/goto?t=store/index.html',
 	data : {
 		pageTitle : '门店',
 		pageHeader : {
@@ -55,14 +55,14 @@
 						pluginPath + '/datatables/js/datatables.responsive.js']
 			}, {
 				name : 'blankonApp.storelist',
-				files : ['goto?t=store/index.js']
+				files : ['${base}/goto?t=store/index.js']
 			}]);
 
 		}]
 	}
 }).state('menulist', {
 	url : '/menulist',
-	templateUrl : 'goto?t=menu/list/index.html',
+	templateUrl : '${base}/goto?t=menu/list/index.html',
 	data : {
 		pageTitle : '所有菜品',
 		pageHeader : {
@@ -102,7 +102,7 @@
 						]
 					}, {
 						name : 'blankonApp.menulist',
-						files : ['goto?t=menu/list/index.js']
+						files : ['${base}/goto?t=menu/list/index.js']
 					}]);
 		}]
 	}
@@ -110,7 +110,7 @@
 
 .state('menuattr', {
 	url : '/menuattr',
-	templateUrl : 'goto?t=menu/attr/index.html',
+	templateUrl : '${base}/goto?t=menu/attr/index.html',
 	data : {
 		pageTitle : '菜品属性',
 		pageHeader : {
@@ -128,13 +128,13 @@
 					var cssPath = settings.cssPath, pluginPath = settings.pluginPath;
 					return $ocLazyLoad.load([{
 								name : 'blankonApp.menuattr',
-								files : ['goto?t=menu/attr/index.js']
+								files : ['${base}/goto?t=menu/attr/index.js']
 							}]);
 				}]
 	}
 }).state('menugood', {
 	url : '/menugood',
-	templateUrl : 'goto?t=menu/good/index.html',
+	templateUrl : '${base}/goto?t=menu/good/index.html',
 	data : {
 		pageTitle : '菜品分类',
 		pageHeader : {
@@ -167,7 +167,7 @@
 						]
 					}, {
 						name : 'blankonApp.menugood',
-						files : ['goto?t=menu/good/index.js']
+						files : ['${base}/goto?t=menu/good/index.js']
 					}]);
 		}]
 	}
@@ -175,7 +175,7 @@
 
 .state('store', {
 	url : '/store/:id',
-	templateUrl : 'goto?t=store/edit/index.html',
+	templateUrl : '${base}/goto?t=store/edit/index.html',
 	data : {
 		pageTitle : '门店修改',
 		pageHeader : {
@@ -205,7 +205,7 @@
 								+ '/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js',
 						pluginPath + '/KindEditor/kindeditor-min.js',
 						pluginPath + '/jquery-form/jquery.form.js',
-						'goto?t=store/edit/index.js']
+						'${base}/goto?t=store/edit/index.js']
 			}]);
 		}]
 	}
@@ -213,7 +213,7 @@
 
 .state('newstore', {
 	url : '/newstore',
-	templateUrl : 'goto?t=store/newstore/index.html',
+	templateUrl : '${base}/goto?t=store/newstore/index.html',
 	data : {
 		pageTitle : '门店新增',
 		pageHeader : {
@@ -243,7 +243,7 @@
 								+ '/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js',
 						pluginPath + '/KindEditor/kindeditor-min.js',
 						pluginPath + '/jquery-form/jquery.form.js',
-						'goto?t=store/newstore/index.js']
+						'${base}/goto?t=store/newstore/index.js']
 			}]);
 		}]
 	}
