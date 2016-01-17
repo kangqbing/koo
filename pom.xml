@@ -319,6 +319,7 @@
 			<artifactId>nutz-plugins-sqltpl</artifactId>
 			<version>1.b.53.r2</version>
 		</dependency>
+		<!-- 自定义的阿里大鱼的jar -->
 		<dependency>
 			<groupId>smstaobao</groupId>
 			<artifactId>smstaobao</artifactId>
