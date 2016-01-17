@@ -7,9 +7,6 @@
         <dependent-module archiveName="waiter_base-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/waiter_base/waiter_base">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="koo_base-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/koo_base/koo_base">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module deploy-path="/" handle="module:/overlay/prj/koo_web?includes=**/**&amp;excludes=META-INF/MANIFEST.MF">
             <dependency-type>consumes</dependency-type>
         </dependent-module>
