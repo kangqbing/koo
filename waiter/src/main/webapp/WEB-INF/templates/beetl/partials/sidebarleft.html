@@ -1,0 +1,41 @@
+<div class="sidebar-content">
+	<a href="#" class="close">&times;</a>
+	<div class="media">
+		<a class="pull-left has-notif avatar" data-ng-href="${base}">
+			<img ng-src="{{user.headimgurl}}" alt="admin"> <i
+			class="online"></i>
+		</a>
+		<div class="media-body">
+			<h4 class="media-heading">
+				Dear, <span>{{user.nickName}}</span>
+			</h4>
+			<small>{{user.city}}.{{user.province}}</small>
+		</div>
+	</div>
+</div>
+
+<ul data-collapse-menu class="sidebar-menu">
+	<li class="sidebar-category"><span>订单管理</span> <span
+		class="pull-right"><i class="fa fa-trophy"></i></span></li>
+	<li><a href="#/bill" data-active-menu> <span class="icon"><i
+				class="fa fa-home"></i></span> <span class="text">今日订单</span>
+	</a></li>
+	<li class="sidebar-category"><span>门店管理</span> <span
+		class="pull-right"><i class="fa fa-trophy"></i></span></li>
+	<li><a href="#/storelist" data-active-menu> <span class="icon"><i
+				class="fa fa-home"></i></span> <span class="text">门店</span>
+	</a></li>
+	<li class="sidebar-category"><span>菜品管理</span> <span
+		class="pull-right"><i class="fa fa-trophy"></i></span></li>
+
+	<li><a href="#/menulist" data-active-menu> <span class="icon"><i
+				class="fa fa-home"></i></span> <span class="text">所有菜品</span>
+	</a></li>
+	<li><a href="#/menuattr" data-active-menu> <span class="icon"><i
+				class="fa fa-home"></i></span> <span class="text">菜品属性</span>
+	</a></li>
+	<li><a href="#/menugood" data-active-menu> <span class="icon"><i
+				class="fa fa-home"></i></span> <span class="text">菜品分类</span>
+	</a></li>
+</ul>
+

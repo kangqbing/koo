@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8" data-ng-app="wxApp"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9" data-ng-app="wxApp"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" data-ng-app="wxApp">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<link id="load_css_before" />
+<link
+	data-ng-href="{{settings.pluginPath}}/bootstrap/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link
+	data-ng-href="{{settings.pluginPath}}/fontawesome/css/font-awesome.min.css"
+	rel="stylesheet">
+<link data-ng-href="{{settings.cssPath}}/reset.css" rel="stylesheet">
+<link data-ng-href="{{settings.cssPath}}/layout.css" rel="stylesheet">
+<link data-ng-href="{{settings.cssPath}}/components.css"
+	rel="stylesheet">
+<link data-ng-href="{{settings.cssPath}}/plugins.css" rel="stylesheet">
+<link data-ng-href="{{settings.cssPath}}/themes/angularjs-theme.css"
+	rel="stylesheet" id="theme">
+<link data-ng-href="{{settings.cssPath}}/custom.css" rel="stylesheet">
+</head>
+
+<body data-ng-controller="wxCtrl" class="page-session">
+	<section id="wrapper">
+		<section id="page-content0">
+			<div data-ui-view class="body-content animated fadeIn"></div>
+		</section>
+	</section>
+	<script src="${base}/assets/global/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="${base}/assets/global/plugins/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="${base}/assets/global/plugins/bower_components/angular/angular.min.js"></script>
+	<script src="${base}/assets/global/plugins/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script src="${base}/assets/global/plugins/bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+	<script src="${base}/goto?t=wx/conf/app.js"></script>
+	<script src="${base}/goto?t=wx/conf/config.js"></script>
+	<script src="${base}/goto?t=wx/conf/controllers.js"></script>
+	<script src="${base}/goto?t=wx/conf/directives.js"></script>
+</body>
+</html>

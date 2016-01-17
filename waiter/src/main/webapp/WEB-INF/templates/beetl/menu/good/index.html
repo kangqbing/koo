@@ -1,0 +1,86 @@
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel rounded shadow no-overflow">
+			<div class="panel-sub-heading inner-all" ng-show="isshow==0">
+				<label class="control-label">筛选：</label> <select
+					class="form-control inline" required ng-model="storeid"
+					ng-options="m.id as m.name for m in allstore">
+					<option value="">--所有门店--</option>
+				</select> <a class="btn btn-primary btn-stroke btn-dashed" style="width: 100px;" ng-click="good={};isshow=1;">添加分类</a>
+			</div>
+			<div class="panel-sub-heading inner-all" ng-show="isshow==1">
+				<a ng-click="isshow=0;reload()" class="btn btn-primary btn-stroke btn-dashed" style="width: 100px;">返回</a>
+			</div>
+			<div class="panel-body" ng-show="isshow==1">
+				<form validate-model="soto"
+					class="form-horizontal bv-form ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength form-bordered">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">菜品类别:<span
+							class="asterisk">*</span></label>
+						<div class="col-sm-6">
+							<input class="form-control input-xlarge typeahead rounded" name="name" id="name"
+								required
+								data-msg="不能为空"
+								ng-model="good.name">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">排序:</label>
+						<div class="col-sm-2">
+							<input class="form-control input-xlarge  typeahead rounded"  id="sort" name="sort" 
+								type="number" ng-model="good.sort">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-md-2 control-label">绑定门店:<span
+							class="asterisk">*</span></label>
+						<div class="col-md-8">
+							<label class="radio-inline"> <input id="radio_store" class="typeahead rounded"
+								type="radio" required data-msg="不能为空" name="radio_store" value="0"
+								ng-model="good.radio_store"> 所有门店
+							</label> <label class="radio-inline"> <input id="radio_store" class="typeahead rounded"
+								type="radio" required data-msg="不能为空" name="radio_store" value="1"
+								ng-model="good.radio_store"> 部分门店
+							</label>
+						</div>
+					</div>
+					<div class="form-group" ng-show="good.radio_store==1">
+						<label class="col-md-2 control-label">部分门店:<span
+							class="asterisk">*</span></label>
+						<div class="col-md-10">
+							<label class="checkbox-inline" ng-repeat="item in allstore">
+								<input type="checkbox" name="storeid" class="typeahead rounded"
+								checklist-model="good.storeid" checklist-value="item.id"
+								required data-msg="不能为空"/> {{item.name}}
+							</label>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label"></label>
+						<div class="col-sm-4">
+							<button class="btn-success btn btn-stroke btn-dashed" type="submit" style="width: 100px;">保存</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="panel-body" ng-show="isshow==0">
+				<table ng-table="tableParams"
+					class="table table-teal table-bordered table-striped"
+					show-filter="false">
+					<tr ng-repeat="user in $data">
+						<td title="'门店'">{{user.storeName}}</td>
+						<td title="'分类名称'" filter="{ name: 'text'}">{{user.name}}</td>
+						<td title="'操作'"><a ng-click="edit(user)"
+							class="btn btn-primary btn-stroke btn-dashed btn-sm btn-xs">修改</a>
+							<a ng-click="del(user)"
+							class="btn btn-danger btn-stroke btn-dashed btn-sm btn-xs">删除</a>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,59 @@
+<style>
+.panel-tab .panel-body {
+	background: #FFFFFF;
+}
+</style>
+<div class="row">
+	<div class="col-md-12">
+		<div data-validation-wizard>
+			<div class="panel panel-tab rounded shadow">
+				<div class="panel-heading no-padding">
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#tab5-1" data-toggle="tab"> <i
+								class="fa fa-user"></i>
+								<div>
+									<span class="text-strong">第一步</span> <span>门店信息</span>
+								</div>
+						</a></li>
+						<li><a href="#tab5-2" data-toggle="tab"> <i
+								class="fa fa-file-text"></i>
+								<div>
+									<span class="text-strong">第二步</span> <span>高级功能</span>
+								</div>
+						</a></li>
+						<li><a href="#tab5-3" data-toggle="tab"> <i
+								class="fa fa-credit-card"></i>
+								<div>
+									<span class="text-strong">第三步</span> <span>地图定位</span>
+								</div>
+						</a></li>
+					</ul>
+				</div>
+				<div class="panel-body">
+					<form action="${base}/storeSave" id="form-wizard" role="form"
+						enctype="application/x-www-form-urlencoded" method="post"
+						novalidate="novalidate"
+						class="tab-content form-horizontal bv-form">
+						<div class="tab-pane fade in active inner-all" id="tab5-1">
+							<!--:include('step1.html',{}){}  -->
+						</div>
+						<div class="tab-pane fade inner-all" id="tab5-2">
+							<!--:include('step2.html',{}){}  -->
+						</div>
+						<div class="tab-pane fade inner-all" id="tab5-3">
+							<!--:include('step3.html',{}){}  -->
+						</div>
+					</form>
+				</div>
+				<div class="panel-footer pull-center">
+				        
+						<ul class="pager wizard no-margin col-sm-offset-2">
+							<li class="previous"><a href="javascript:void(0);">上一步</a></li>
+							<li class="next"><a href="javascript:void(0);">下一步</a></li>
+						</ul>
+				</div>
+			</div>
+			<!-- /.panel -->
+		</div>
+	</div>
+</div>

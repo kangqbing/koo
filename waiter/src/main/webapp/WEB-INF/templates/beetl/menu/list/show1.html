@@ -1,0 +1,232 @@
+<div class="panel-sub-heading inner-all" ng-switch-when="1">
+	<div class="pull-left">
+		<h5 class="modal-title">增加菜品</h5>
+	</div>
+	<div class="pull-right">
+		<a ng-click="open(0);"
+			class="btn btn-primary btn-stroke btn-dashed btn-sm"
+			style="width: 100px;">返回</a>
+	</div>
+	<div class="clearfix"></div>
+</div>
+<div class="panel-body animated fadeIn" ng-switch-when="1">
+	<form validate-model="soto"
+		class="form-horizontal ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength form-bordered">
+		<div class="form-group">
+			<label class="col-md-2 control-label">部分门店:<span
+				class="asterisk">*</span></label>
+			<div class="col-md-6">
+				<select class="form-control inline typeahead rounded" required
+					data-msg="不能为空" ng-model="koo.store_id"
+					name="store_id" ng-change="allgoodkoo_change()"
+					ng-options="m.id as m.name for m in allstorekoo">
+					<option value="">---请选择---</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group" ng-if="!!koo.store_id">
+			<label class="col-sm-2 control-label">菜品分类:<span
+				class="asterisk">*</span></label>
+			<div class="col-sm-6">
+				<select class="form-control inline typeahead rounded" required
+					data-msg="菜品分类不能为空" ng-model="$parent.$parent.koo.type_id"
+					name="type_id" ng-options="m.id as m.name for m in allgoodkoo">
+					<option value="">---请选择---</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">菜品名称:<span
+				class="asterisk">*</span></label>
+			<div class="col-sm-5">
+				<input ng-model="koo.name" name="name"
+					class="form-control  typeahead rounded" required
+					data-msg="菜品名称不能为空" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">菜品描述</label>
+			<div class="col-sm-6">
+				<textarea class="form-control input-xlarge typeahead rounded "
+					ng-model="koo.description" name="description"
+					maxlength="300"></textarea>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-2 control-label">菜品排序</label>
+			<div class="col-sm-3">
+				<input class="form-control input-xlarge typeahead rounded"
+					type="number" ng-model="koo.sort" name="sort"
+					maxlength="300">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-2 control-label">菜品标签</label>
+			<div class="col-sm-3">
+				<input class="form-control input-xlarge typeahead rounded"
+					name="tag" ng-model="koo.tag" maxlength="300">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label"><span class="asterisk">*</span>价格</label>
+			<div class="col-sm-5">
+				<div class="input-xlarge">
+					<div class="input-group"
+						style="width: 200px; float: left; margin-right: 20px;">
+						<input type="number" class="form-control" required
+							data-msg="价格不能为空" ng-model="koo.price"
+							name="price" step="0.01">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-2 control-label">必选属性</label>
+			<div class="col-sm-10">
+				<div style="float: left; margin-right: 30px;">
+					<label class="radio-inline" style="padding: 2px 0;"> <input
+						type="checkbox" name="required" ng-model="required" value="true">必选
+					</label> <span class="help-inline">根据订单或者人数默认添加此商品，可以实现赠品,餐位费或者打包费等</span>
+				</div>
+			</div>
+		</div>
+		<div class="form-group" ng-if="required||koo.by_order_or_people">
+			<label class="col-sm-2 control-label"></label>
+			<div class="col-sm-10">
+				<div style="float: left; margin-right: 30px;">
+					<label style="padding: 2px 0;"><input required
+						data-msg="必须选择一项" class="" type="radio" id="by_order"
+						name="by_order_or_people"
+						ng-model="koo.by_order_or_people" value="1">按订单</label>
+					<label style="padding: 2px 0;"><input required class=""
+						type="radio" id="by_order" name="by_order_or_people"
+						ng-model="koo.by_order_or_people" value="2">按人数</label>
+					<label style="padding: 2px 0;"><input required class=""
+						type="radio" id="by_order" name="by_order_or_people"
+						ng-model="koo.by_order_or_people" value="3">按菜品数</label>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-2 control-label">菜品属性</label>
+			<div class="col-sm-10">
+				<div style="float: left; margin-right: 30px;">
+					<label class="radio-inline" style="padding: 2px 0;"> <input
+						ng-change="req()" type="checkbox" name="required"
+						ng-model="required1" value="true">高级属性
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="form-group" id="attributeDetail" ng-show="required1">
+			<label class="col-sm-2 control-label"></label>
+			<div class="col-sm-10">
+				<ul class="Package-Property">
+					<li class="form-group"><strong class="class"
+						ng-init="$parent.$parent.too={label:{}};"> 口味: </strong>
+						<div class="demo-list">
+							<div class="pull-left" ng-repeat="it in attrs.tastelist">
+								<label class="radio-inline"> <input type="checkbox"
+									ng-model="$parent.$parent.too.id[it.id]"
+									ng-change="$parent.$parent.too.name[it.id]=it.name;boxchange($parent.$parent.too,it.id);"
+									value="{{it.id}}">{{it.name}}
+								</label> <input ng-show="$parent.$parent.too.id[it.id]"
+									ng-model="$parent.$parent.too.label[it.id]" placeholder="别名"
+									class="form-control inline typeahead rounded"
+									style="margin-left: 5px;">
+							</div>
+						</div></li>
+					<li class="form-group"><strong class="class"
+						ng-init="$parent.$parent.soo={label:{}};"> 份量: </strong>
+						<div class="demo-list">
+							<div class="pull-left" ng-repeat="it in attrs.sizelist">
+								<label class="radio-inline"> <input type="checkbox"
+									ng-model="$parent.$parent.soo.id[it.id]"
+									ng-change="$parent.$parent.soo.name[it.id]=it.name;boxchange($parent.$parent.soo,it.id);"
+									value="{{it.id}}">{{it.name}}
+								</label> <input ng-show="$parent.$parent.soo.id[it.id]"
+									ng-model="$parent.$parent.soo.label[it.id]" placeholder="别名"
+									class="form-control inline typeahead rounded"
+									style="margin-left: 5px;">
+							</div>
+						</div></li>
+				</ul>
+			</div>
+		</div>
+		<div class="form-group" ng-if="showTable()">
+			<label class="col-sm-2 control-label"></label>
+			<div class="col-sm-8">
+				<table class="table  table-bordered" id="ifHideTable">
+					<tbody data-aid="applytr" id="attrDetail">
+						<tr ng-if="tooisok()&&sooisok()"
+							ng-repeat="(key,val) in $parent.$parent.too.id | myfilter">
+							<td class="text-center"><span>{{$parent.$parent.$parent.too.label[key]?$parent.$parent.$parent.too.label[key]:$parent.$parent.$parent.too.name[key]}}</span></td>
+							<td class="text-center">
+								<table class="table table-bordered table-shadow">
+									<tbody>
+										<tr
+											ng-repeat="(key1,val1) in $parent.$parent.soo.id | myfilter">
+											<td class="text-center"><span>{{$parent.$parent.$parent.soo.label[key1]?$parent.$parent.$parent.soo.label[key1]:$parent.$parent.$parent.soo.name[key1]}}</span></td>
+											<td class="text-center"><input required data-msg="不能为空"
+												name="{{key+','+key1}}" type="number"
+												class="form-control typeahead rounded" type="text"
+												ng-model="$parent.$parent.$parent.attrList.price[key+','+key1]"
+												ng-change="delprice(key,key1)" placeholder="价格"></td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr ng-if="tooisok()&&!sooisok()"
+							ng-repeat="(key,val) in $parent.$parent.too.id | myfilter">
+							<td class="text-center"><span>{{$parent.$parent.too.label[key]?$parent.$parent.too.label[key]:$parent.$parent.too.name[key]}}</span></td>
+							<td class="text-center"><input name="{{key+','+0}}"
+								type="number" class="form-control typeahead rounded" type="text"
+								required data-msg="不能为空" ng-change="delprice(key,0)+','"
+								ng-model="$parent.$parent.attrList.price[key+',0']"
+								placeholder="价格"></td>
+						</tr>
+						<tr ng-if="!tooisok()&&sooisok()"
+							ng-repeat="(key,val) in $parent.$parent.soo.id | myfilter">
+							<td class="text-center"><span>{{$parent.$parent.soo.label[key]?$parent.$parent.soo.label[key]:$parent.$parent.soo.name[key]}}</span></td>
+							<td class="text-center"><input name="{{'0,'+key}}"
+								type="number" class="form-control typeahead rounded" type="text"
+								required data-msg="不能为空" ng-change="delprice(0,key)"
+								ng-model="$parent.$parent.attrList.price['0,'+key]"
+								placeholder="价格"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">菜品限购</label>
+			<div class="col-sm-8">
+				<span>至少购买</span><input type="number"
+					ng-model="koo.number"
+					class="form-control  inline  typeahead rounded" name="number"
+					min="0" value="0" required data-msg="不能为空"> <span
+					class="help-inline">0 代表不限制</span>
+			</div>
+		</div>
+		<div class="form-group clearfix">
+            <label class="col-sm-2 control-label">菜品图片</label>
+            <div class="col-sm-8">
+            <input type="button" class="btn btn-default" image-click value="选择图片">
+            <span class="help-inline">请上传图片，推荐大小为700X700</span>
+            <div class="img_more"><img id="ImagUrl" width="100" height="100" ng-src="{{koo.image_url}}"></div>
+            </div>
+        </div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label"></label>
+			<div class="col-sm-4">
+				<button class="btn-success btn btn-stroke btn-dashed" type="submit"
+					style="width: 100px;">保存</button>
+			</div>
+		</div>
+	</form>
+</div>

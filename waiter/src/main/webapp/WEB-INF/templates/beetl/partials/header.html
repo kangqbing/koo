@@ -1,0 +1,42 @@
+<div class="header-left">
+	<div class="navbar-minimize-mobile left">
+		<i class="fa fa-bars"></i>
+	</div>
+	<div class="navbar-header">
+		<a class="navbar-brand" data-ng-href="${base}"> <img class="logo"
+			ng-src="{{ settings.globalImagePath }}/logo/logo-white.png"
+			alt="brand logo" />
+		</a>
+	</div>
+	<div class="navbar-minimize-mobile right">
+		<i class="fa fa-cog"></i>
+	</div>
+
+	<div class="clearfix"></div>
+</div>
+
+<div data-sidebar-minimize class="header-right">
+	<div class="navbar navbar-toolbar">
+
+		<ul class="nav navbar-nav navbar-left">
+
+			<li class="navbar-minimize"><a href="javascript:void(0);"
+				title="Minimize sidebar"> <i class="fa fa-bars"></i>
+			</a></li>
+			<li class="navbar-search"></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li class="dropdown navbar-profile"><a href="#"
+				class="dropdown-toggle" data-toggle="dropdown"> <span
+					class="meta"><span class="avatar"><img
+							ng-src="{{user.headimgurl}}" class="img-circle" alt="admin"></span><span
+						class="text hidden-xs hidden-sm text-muted">{{user.nickName}}</span><span
+						class="caret"></span></span>
+			</a></li>
+			<li data-sidebar-minimize class="navbar-setting pull-right"><a
+				href="javascript:void(0);"><i class="fa fa-cog fa-spin"></i></a></li>
+
+		</ul>
+
+	</div>
+</div>

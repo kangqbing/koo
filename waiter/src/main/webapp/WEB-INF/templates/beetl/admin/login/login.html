@@ -1,0 +1,35 @@
+	<style>
+	<!--:include('login.css',{}){}  -->
+	</style>
+	
+	<div >
+		<div class="navbar navbar-default navbar-static-top" role="navigation">
+			<div class="header_center">
+				<div class="navbar-header">
+					<img src="${base}/img/logo.png" class="logo" /> <span>${msg['admin.title']!''}</span>
+				</div>
+				<ul class="navbar-top-links navbar-right ">
+					<li></li>
+				</ul>
+			</div>
+		</div>
+		<div class="layout">
+			<div class="step-contont" id="step_1">
+				<div class="text-center step_1 login-weixin">
+					<h2>微信扫一扫立即体验</h2>
+					<div class="reg_qrcode" style="display: '';">
+						<img style="width: 350px; height: 350px;" id="reg_qrcode"
+							ng-src="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket={{ticket}}">
+					</div>
+					<p>请使用微信扫描二维码开始注册或登录</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<p>Copyright ? 2011-2015 happyorange.cn All Rights Reserved</p>
+		<p></p>
+		<p></p>
+		<span id="is_chrome">为了更好的使用效果请使用Chrome浏览器</span>
+	</div>

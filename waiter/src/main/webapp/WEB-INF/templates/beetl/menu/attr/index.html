@@ -1,0 +1,61 @@
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel rounded shadow no-overflow">
+			<div class="panel-sub-heading inner-all">
+				<h5 class="modal-title" id="myModalLabel">添加菜品属性</h5>
+			</div>
+			<div class="panel-body">
+				<form
+					class="form-horizontal bv-form ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength form-bordered">
+					<div class="form-group">
+						<label class="col-sm-3 control-label">口味:</label>
+						<div class="col-sm-7">
+							<div style="margin-top: 5px;" data-ng-repeat="attr in Tattrs">
+								<div>
+									<input type="hidden" ng-model="attr.id"> <input
+										placeholder="请输入属性内容" ng-model="attr.name"
+										class="form-control inline typeahead rounded" style="width: 60px;"> <a
+										ng-hide="$index>0" ng-click="Tadd(this)"
+										class="btn btn-circle btn-success btn-stroke"> <i
+										class="glyphicon glyphicon-plus"></i>
+									</a> <a ng-click="Tdel(this)"
+										class="btn btn-circle btn-danger btn-stroke"> <i
+										class="glyphicon glyphicon-minus"></i>
+									</a>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">份量:</label>
+						<div class="col-sm-7">
+							<div style="margin-top: 5px;" data-ng-repeat="attr in Sattrs">
+								<div>
+									<input type="hidden" ng-model="attr.id"> <input
+										placeholder="请输入属性内容" ng-model="attr.name"
+										class="form-control inline typeahead rounded" style="width: 60px;"> <a
+										ng-hide="$index>0" ng-click="Sadd(this)"
+										class="btn btn-circle btn-success btn-stroke"> <i
+										class="glyphicon glyphicon-plus"></i>
+									</a> <a ng-click="Sdel(this)"
+										class="btn btn-circle btn-danger btn-stroke"> <i
+										class="glyphicon glyphicon-minus"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</form>
+			</div>
+			<div class="panel-footer">
+				<div class="col-sm-offset-3">
+					<button ng-click="save()" class="btn-success btn btn-stroke btn-dashed" style="width: 100px;">保存</button>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+
+		</div>
+	</div>
+</div>

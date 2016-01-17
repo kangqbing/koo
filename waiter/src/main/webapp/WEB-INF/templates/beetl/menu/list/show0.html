@@ -1,0 +1,40 @@
+
+<div class="panel-sub-heading inner-all" ng-switch-when="0">
+	<div class="pull-left">
+		<div class="">
+			<a ng-click="open(1)"
+				class="btn btn-sm btn-primary btn-push"><i class="fa fa-pencil"></i>
+				添加菜品</a>
+		</div>
+	</div>
+	<div class="pull-right"></div>
+	<div class="clearfix"></div>
+</div>
+
+<div class="panel-sub-heading inner-all" ng-switch-when="0">
+	<select class="form-control inline typeahead rounded" required
+		ng-change="change()" ng-model="cx.storeid"
+		ng-options="m.id as m.name for m in allstore">
+		<option value="">----所有门店----</option>
+	</select> <select class="form-control inline typeahead rounded" required
+		ng-change="change()" ng-model="cx.goodid"
+		ng-options="m.id as m.name for m in allgood">
+		<option value="">---所有菜品分类---</option>
+	</select> <input type="text" class="form-control inline typeahead rounded"
+		ng-change="change()" ng-model="cx.name" placeholder="筛选菜单名称">
+</div>
+<div class="panel-body animated fadeIn" ng-switch-when="0">
+	<table ng-table="tableParams"
+		class="table table-bordered table-striped" show-filter="false">
+		<tr ng-repeat="it in $data">
+			<td title="'排序'">{{it.name}}</td>
+			<td title="'菜品名称'">{{it.name}}</td>
+			<td title="'价格'">{{it.name}}</td>
+			<td title="'菜品分类'">{{it.name}}</td>
+			<td title="'所属门店'">{{it.name}}</td>
+			<td title="'上架'">{{it.name}}</td>
+			<td title="'剩余库存'">{{it.name}}</td>
+			<td title="'操作'">{{it.name}}</td>
+		</tr>
+	</table>
+</div>
