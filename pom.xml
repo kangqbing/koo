@@ -319,7 +319,16 @@
 			<artifactId>nutz-plugins-sqltpl</artifactId>
 			<version>1.b.53.r2</version>
 		</dependency>
-		<!-- 自定义的阿里大鱼的jar -->
+		<!-- 自定义的阿里大鱼的jar 
+		mvn deploy:deploy-file
+			-DgroupId=lotus.domino
+			-DartifactId=NCSO
+			-Dversion=7.0
+			-Dpackaging=jar
+			-Dfile=E:\dominosso\dominoapp\dominoapp\WEB-INF\lib\NCSO.jar
+			-Durl=http://yourlocalrepository:8888/archiva/repository/internal
+			-DrepositoryId=internal
+		-->
 		<dependency>
 			<groupId>smstaobao</groupId>
 			<artifactId>smstaobao</artifactId>
